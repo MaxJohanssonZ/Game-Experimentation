@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Stack;
 
 public class Profile {
+    int profileID;
     String username;
     String firstName;
     String lastName;
@@ -16,6 +17,14 @@ public class Profile {
         this.firstName = firstName;
         this.lastName = lastName;
         this.point = point;
+    }
+
+    public int getProfileID() {
+        return profileID;
+    }
+
+    public void setProfileID(int profileID) {
+        this.profileID = profileID;
     }
 
     public String getUsername() {
