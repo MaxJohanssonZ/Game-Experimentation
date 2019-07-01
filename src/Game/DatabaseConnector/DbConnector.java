@@ -1,11 +1,12 @@
 package Game.DatabaseConnector;
 
+import Game.Profile.Character;
 import Game.Profile.Profile;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.sql.*;
+
+import static Game.MainMenu.mainMenuController.selectedProfile;
 
 public class DbConnector {
     public Connection connection = null;
@@ -35,6 +36,15 @@ public class DbConnector {
         }
     }
 
+    public void getProfileData(){
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM profile WHERE username = ?");
+            resultSet = preparedStatement.executeQuery();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
     public void getProfilesFromDB(){
         observableListProfile.clear();
         try {
@@ -57,6 +67,7 @@ public class DbConnector {
     }
 
     public void addNewProfileToDB(Profile profile){
+        connect();
         try {
             PreparedStatement ps = connection.prepareStatement("INSERT INTO `profile`(profileID, username, firstName, lastName, points) VALUES (?,?,?,?,?)");
             ps.setInt(1, profile.getProfileID());
@@ -66,7 +77,27 @@ public class DbConnector {
             ps.setInt(5, profile.getPoint());
             ps.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("Error when loading to database");
+            System.out.println("Error when creating new profile");
+        } finally {
+            disconnect();
+        }
+    }
+
+    public void addNewCharacterToDB(Character character){
+        connect();
+        try {
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO `character`(characterID, characterName, dps, health, profile_profileID) VALUES (?,?,?,?,?)");
+            ps.setInt(1, character.getCharacterID());
+            ps.setString(2, character.getCharFirstName());
+            ps.setDouble(3, character.getDamageDone());
+            ps.setInt(4, character.getHealth());
+            ps.setInt(5, selectedProfile.getProfileID());
+            ps.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+            System.out.println("Error creating new character");
+        } finally {
+            disconnect();
         }
     }
 }
