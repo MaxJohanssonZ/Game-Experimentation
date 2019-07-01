@@ -38,9 +38,7 @@ public class CreateProfileController {
         dbConnector.addNewProfileToDB(newProfile);
         profiles.add(newProfile);
         dbConnector.disconnect();
-
         System.out.println(newProfile.getUsername());
-
         txtUsername.clear();
         txtFirstName.clear();
         txtLastName.clear();
