@@ -41,7 +41,6 @@ public class mainMenuController implements Initializable {
             System.out.println("Profile successfully chosen");
             selectedProfile = profile;
             System.out.println(selectedProfile.getUsername() + selectedProfile.getFirstName() + selectedProfile.getProfileID());
-            //System.out.println("Username: " + profile.getUsername() + ", Name: " + profile.getFirstName() + " " + profile.getLastName());
             logic.changeSceneHandler(event, "/Game/CharacterHandling/CharacterSelection/CharacterSelection.fxml", true);
         } else {
             System.out.println("No profile chosen");

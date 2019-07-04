@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -8,16 +9,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game.CharacterHandling.CharacterCreation.createACharacterController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../Backend/GUIDesign.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game.CharacterHandling.CharacterCreation.createACharacterController">
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="373.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="characterFirstName" layoutX="226.0" layoutY="127.0" promptText="Name" />
-            <TextField fx:id="characterTitle" layoutX="226.0" layoutY="163.0" promptText="Title" />
-            <Button layoutX="436.0" layoutY="127.0" mnemonicParsing="false" text="Randomize name" />
-            <Button layoutX="441.0" layoutY="163.0" mnemonicParsing="false" text="Randomize title" />
-            <Button layoutX="226.0" layoutY="200.0" mnemonicParsing="false" onAction="#createNewCharacter" text="Confirm" />
+            <TextField fx:id="characterFirstName" layoutX="211.0" layoutY="127.0" promptText="Name" />
+            <TextField fx:id="characterTitle" layoutX="211.0" layoutY="162.0" promptText="Title" />
+            <Button fx:id="randomizeFirstName" layoutX="375.0" layoutY="127.0" mnemonicParsing="false" onAction="#randomizeName" text="Randomize name" />
+            <Button fx:id="randomizeTitle" layoutX="380.0" layoutY="162.0" mnemonicParsing="false" text="Randomize title" />
+            <Button layoutX="211.0" layoutY="197.0" mnemonicParsing="false" onAction="#createNewCharacter" text="Confirm" />
+            <ComboBox fx:id="genderSelection" layoutX="228.0" layoutY="58.0" prefHeight="29.0" prefWidth="144.0" promptText="Choose gender" />
          </children>
       </AnchorPane>
    </center>

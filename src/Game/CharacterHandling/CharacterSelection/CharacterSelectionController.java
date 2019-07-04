@@ -20,7 +20,7 @@ public class CharacterSelectionController implements Initializable {
     }
 
     public void goToCharCreation(ActionEvent event){
-        logic.changeSceneHandler(event, "/Game/CharacterHandling/CharacterCreation/createACharacter.fxml", true);
+        logic.changeSceneHandler(event, "/Game/CharacterHandling/CharacterCreation/createACharacter.fxml", false);
     }
 
     public void closeProgram(){
